@@ -1,6 +1,7 @@
 from inspect import ArgInfo
 import sys
 import json
+import codecs
 from docxtpl import DocxTemplate
 
 
@@ -19,16 +20,18 @@ def main(args):
                         {
                             'заменяемый текст':'текст для замены'
                         },
-                        
                     ]
         3. постфикс новых файлов (например решение.doc)
+        
+        !!!! работает только с .doc .docx файлами !!!!
+
         попробуйте еще раз''')
         input('нажмите любую клавишу чтобы выйти')
         return 0
     print (f"opening file:\n{path_to_template}")
     opened_doc = DocxTemplate(path_to_template)
     data = {}
-    with open (path_to_data) as file:
+    with codecs.open (path_to_data, 'r', 'utf-8') as file:
         data = json.loads(file.read())
     index = 1
     for item in data:

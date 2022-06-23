@@ -1,8 +1,0 @@
-[
-    {
-    "company_name":"test_company"
-    },
-    {
-    "company_name":"test 2"
-    }
-]   
